@@ -6,6 +6,8 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour {
 
+    ScoreBoard scoreBoard;
+
     [Header("General")]
     [Tooltip("In ms^-1")][SerializeField] float xControlSpeed= 6f;
     [Tooltip("In ms^-1")] [SerializeField] float yControlSpeed = 6f;
@@ -26,14 +28,27 @@ public class PlayerController : MonoBehaviour {
 
     float xThrow, yThrow;
     bool isControlEnabled = true;
+    int timeUpdateBonusCount = 0;
+
+    void Start()
+    {
+        scoreBoard = FindObjectOfType<ScoreBoard>();
+
+    }
 
     // Update is called once per frame
     void Update ()
     {
         if (isControlEnabled)
         {
+            timeUpdateBonusCount++;
+
             ProcessTranslation();
             ProcessRotation();
+            if (timeUpdateBonusCount % 10 == 0)   // add time bonus every tenth frame
+            {
+                scoreBoard.AddTimeBonus();
+            }
         }
 
     }
