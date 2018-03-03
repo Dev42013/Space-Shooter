@@ -33,4 +33,6 @@ public class ScoreBoard : MonoBehaviour {
     {
         scoreText.text = score.ToString();
     }
+
+    // Change A
 }
