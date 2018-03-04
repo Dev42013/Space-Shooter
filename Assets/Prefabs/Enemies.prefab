@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 23993966131821718}
   - component: {fileID: 114567272094084982}
   m_Layer: 0
-  m_Name: Enemy Ship 2 (1)
+  m_Name: Falcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 23853634671904214}
   - component: {fileID: 114399792954140194}
   m_Layer: 0
-  m_Name: Enemy Ship 2 (3)
+  m_Name: Hawk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,8 +105,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844329046737130}
   m_LocalRotation: {x: -0.3927444, y: 0.59594476, z: 0.29453832, w: 0.6354911}
-  m_LocalPosition: {x: 0, y: -122.30197, z: 84.30289}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalPosition: {x: 38.8, y: -122.3, z: 35.5}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 4656667569647900}
   m_RootOrder: 3
@@ -117,8 +117,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670831491260326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 404.96973, y: 257.20197, z: 197.69711}
+  m_LocalRotation: {x: 0.046256423, y: -0.4338114, z: -0.02230777, w: 0.899539}
+  m_LocalPosition: {x: -219.3, y: 201.8, z: 358.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4787556252802520}
@@ -127,7 +127,7 @@ Transform:
   - {fileID: 4072025315380962}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.6620002, y: -51.640003, z: -4.6130004}
 --- !u!4 &4787556252802520
 Transform:
   m_ObjectHideFlags: 1
@@ -135,8 +135,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667192202528224}
   m_LocalRotation: {x: -0.3927444, y: 0.59594476, z: 0.29453832, w: 0.6354911}
-  m_LocalPosition: {x: 0, y: -97.701965, z: -90.69711}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalPosition: {x: -25.3, y: -81.7, z: -61.6}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4656667569647900}
   m_RootOrder: 0
@@ -148,8 +148,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792995795414428}
   m_LocalRotation: {x: -0.3927444, y: 0.59594476, z: 0.29453832, w: 0.6354911}
-  m_LocalPosition: {x: 0, y: -74.701965, z: -34.597107}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalPosition: {x: 2.3, y: -102.7, z: -32.8}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 4656667569647900}
   m_RootOrder: 1
@@ -161,8 +161,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678578127762822}
   m_LocalRotation: {x: -0.3927444, y: 0.59594476, z: 0.29453832, w: 0.6354911}
-  m_LocalPosition: {x: 0, y: -167.00197, z: 50.002884}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalPosition: {x: 30.8, y: -133.6, z: 5.7}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 4656667569647900}
   m_RootOrder: 2
@@ -342,6 +342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f091a99e0d74248ba71a42550ed555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1756448449417322, guid: 060f89c34bde0fd4ab0051a428af123e, type: 2}
+  parent: {fileID: 0}
+  scorePerHit: 2000
+  hitsRemaining: 3
 --- !u!114 &114399792954140194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f091a99e0d74248ba71a42550ed555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1756448449417322, guid: 060f89c34bde0fd4ab0051a428af123e, type: 2}
+  parent: {fileID: 0}
+  scorePerHit: 10
+  hitsRemaining: 3
 --- !u!114 &114559357381206416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,6 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f091a99e0d74248ba71a42550ed555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1756448449417322, guid: 060f89c34bde0fd4ab0051a428af123e, type: 2}
+  parent: {fileID: 0}
+  scorePerHit: 50
+  hitsRemaining: 3
 --- !u!114 &114567272094084982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,3 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f091a99e0d74248ba71a42550ed555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathFX: {fileID: 1756448449417322, guid: 060f89c34bde0fd4ab0051a428af123e, type: 2}
+  parent: {fileID: 0}
+  scorePerHit: 10
+  hitsRemaining: 3
