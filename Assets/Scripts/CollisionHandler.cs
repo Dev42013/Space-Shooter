@@ -18,13 +18,11 @@ public class CollisionHandler : MonoBehaviour {
 
     private void StartDeathSequence()
     {
-        SendMessage("OnPlayerDeath");
-        
+        SendMessage("OnPlayerDeath");  
     }
 
     private void ReloadScene() // string referenced
-    {
-
+    { 
         SceneManager.LoadScene(1);
     }
 }

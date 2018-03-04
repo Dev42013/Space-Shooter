@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
 
    
-    [SerializeField] int TimeBonusPerFrame = 1;
+    [SerializeField] int TimeBonusPerFrame = 1; // number of points to add every nth frame
 
     int score;
     Text scoreText;

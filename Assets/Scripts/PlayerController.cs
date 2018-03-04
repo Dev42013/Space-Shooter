@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("In ms^-1")][SerializeField] float xControlSpeed= 6f;
     [Tooltip("In ms^-1")] [SerializeField] float yControlSpeed = 6f;
 
+    [SerializeField] GameObject[] guns;
 
     [Tooltip("In m")] [SerializeField] float xRange = 5f;
     [Tooltip("In m")] [SerializeField] float yMin = 3f;
@@ -24,7 +25,8 @@ public class PlayerController : MonoBehaviour {
     [Header("Position-throw based")]
     [SerializeField] float positionPitchFactor = -5f;
     [SerializeField] float positionYawFactor = 4.5f;
-    
+
+    [SerializeField] int timeBonusInterval = 10;  // value to update time bonus every nth frame
 
     float xThrow, yThrow;
     bool isControlEnabled = true;
@@ -41,16 +43,22 @@ public class PlayerController : MonoBehaviour {
     {
         if (isControlEnabled)
         {
-            timeUpdateBonusCount++;
-
             ProcessTranslation();
             ProcessRotation();
-            if (timeUpdateBonusCount % 10 == 0)   // add time bonus every tenth frame
-            {
-                scoreBoard.AddTimeBonus();
-            }
+            UpdateTimeBonus();
+            ProcessFiring();
         }
 
+    }
+
+    private void UpdateTimeBonus()
+    {
+        timeUpdateBonusCount++;
+
+        if (timeUpdateBonusCount % timeBonusInterval == 0)   // add time bonus every nth frame
+        {
+            scoreBoard.AddTimeBonus();
+        }
     }
 
     void OnPlayerDeath()  // called by string method
@@ -87,5 +95,35 @@ public class PlayerController : MonoBehaviour {
         float clampedYPos = Mathf.Clamp(rawYPos, -yMin, yMax);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+
+
+
+    private void ProcessFiring()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire"))
+        {
+            ActivateGuns();
+        }
+        else
+        {
+            DeactivateGuns();
+        }
+    }
+
+    private void ActivateGuns()
+    {
+        foreach(GameObject gun in guns)
+        {
+            gun.SetActive(true);
+        }
+    }
+
+    private void DeactivateGuns()
+    {
+        foreach(GameObject gun in guns)
+        {
+            gun.SetActive(false);
+        }
     }
 }
